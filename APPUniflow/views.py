@@ -73,44 +73,9 @@ def logoutUser(request):
     #return redirect("login")
     return render(request,"index.html")
 
-#user login & logut function end ------
 
 
-# def change_user_group(request, user_id):
-#     user = User.objects.get(pk=user_id)
-#     current_group = user.groups.first() if user.groups.exists() else None
 
-#     if request.method == 'POST':
-#         form = ChangeUserGroupForm(request.POST)
-
-#         if form.is_valid():
-#             group = form.cleaned_data['group']
-#             new_group_name = form.cleaned_data['new_group']
-
-#             if new_group_name:
-#                 new_group, created = Group.objects.get_or_create(name=new_group_name)
-#                 user.groups.clear()
-#                 user.groups.add(new_group)
-#             else:
-#                 user.groups.clear()
-#                 user.groups.add(group)
-
-           
-#             logout(request)
-            
-           
-#             login(request, user)
-
-#             return render(request, 'sturentapps/change_user_group.html', {'form': form, 'user': user})
-#     else:
-#         initial_data = {
-#             'user': user.username,
-#             'group': current_group,
-#             'action': 'add' if current_group else 'remove',
-#         }
-#         form = ChangeUserGroupForm(initial=initial_data)
-
-#     return render(request, 'sturentapps/change_user_group.html', {'form': form, 'user': user})
 
 @login_required(login_url="login")
 def add_donor(request):
