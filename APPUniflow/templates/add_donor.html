@@ -1,10 +1,10 @@
-<!-- templates/blood_donors/add_donor.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Donor</title>
+    <link rel="stylesheet" href="/static/css/add_donor.css">
 </head>
 <body>
     <h1>Add New Donor</h1>
@@ -13,5 +13,21 @@
         {{ form.as_p }}
         <button type="submit">Submit</button>
     </form>
+
+    <script>
+        // JavaScript animations
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const inputs = this.querySelectorAll('input');
+            inputs.forEach(input => {
+                input.style.border = '2px solid #007bff';
+                input.style.transition = 'border-color 0.3s ease';
+                setTimeout(() => {
+                    input.style.border = 'none';
+                }, 1000);
+            });
+        });
+    </script>
 </body>
 </html>

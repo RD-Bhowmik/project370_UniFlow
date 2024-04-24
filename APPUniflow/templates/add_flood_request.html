@@ -1,4 +1,4 @@
-<!-- add_blood_request.html -->
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Blood Request</title>
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/add_flood_request.css' %}">
 </head>
 <body>
     <h1>Add Blood Request</h1>
@@ -44,10 +46,10 @@
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email"><br>
 
-
-
-
         <input type="submit" value="Submit">
     </form>
+
+    <!-- Include custom JavaScript -->
+    <script src="{% static 'js/add_blood_request.js' %}"></script>
 </body>
 </html>

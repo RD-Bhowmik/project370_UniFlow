@@ -1,23 +1,31 @@
-<!-- hospital_list.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospital List</title>
+    <link rel="stylesheet" href="/static/css/hospital_list.css">
 </head>
 <body>
-    <h1>List of Hospitals</h1>
-    <ul>
-        {% for hospital in hospitals %}
-            <li>{{ hospital.name }} - {{ hospital.location }} - {{ hospital.email }}</li>
-        {% endfor %}
-    </ul>
-    <hr>
+    <div class="container">
+        <h1>List of Hospitals</h1>
+        <ul id="hospital-list">
+            {% for hospital in hospitals %}
+                <li class="hospital-item">
+                    <span class="name">{{ hospital.name }}</span> - 
+                    <span class="location">{{ hospital.location }}</span> - 
+                    <span class="email">{{ hospital.email }}</span>
+                </li>
+            {% endfor %}
+        </ul>
 
-    <h1>Register Your Hospital in our site</h1>
-    <p>Help us to save lives</p>
-    <a href="{% url 'register_hospital' %}">Register Hospital</a>
+        <hr>
+
+        <h1>Register Your Hospital</h1>
+        <p>Help us save lives by registering your hospital.</p>
+        <a href="{% url 'register_hospital' %}" class="register-button">Register Hospital</a>
+    </div>
+
+    <script src="/static/js/hospital_list.js"></script>
 </body>
 </html>
