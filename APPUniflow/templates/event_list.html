@@ -1,0 +1,72 @@
+<!-- event_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event List</title>
+    <style>
+        /* CSS styling */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .event-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .event-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex; /* Use flexbox for layout */
+            align-items: center; /* Center align items vertically */
+            justify-content: space-between; /* Space between items */
+        }
+        .event-item:nth-child(odd) {
+            background-color: #f0f0f0; /* alternate row color */
+        }
+        .event-item:nth-child(even) {
+            background-color: #c0c0c0; /* alternate row color */
+        }
+        .event-item button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .event-item button.delete-btn {
+            background-color: #ff6347; /* red delete button */
+            color: white;
+        }
+        .event-item button.update-btn {
+            background-color: #4682b4; /* blue update button */
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event List</h1>
+    <ul class="event-list">
+        {% for event in events %}
+            <li class="event-item">
+                <div>
+                    {{ event.name }} - {{ event.date }} - {{ event.location }} - {{ event.status }}
+                </div>
+                <div>
+                    <form action="{% url 'update_event' event.id %}" method="get">
+                        <button class="update-btn" type="submit">Update</button>
+                    </form>
+                </div>
+                <div>
+                    
+                    <form class="delete-form" action="{% url 'delete_event' event.id %}" method="post">
+                        {% csrf_token %}
+                        <button class="delete-btn" type="submit">Delete</button>
+                    </form>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

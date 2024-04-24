@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Blood Donation Page</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .box {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <!-- Profile (Top Left) -->
+        <div>
+            <h3>Welcome, {{ request.user }}</h3>
+            <!-- Add profile picture or additional profile info here -->
+        </div>
+        <!-- Logout (Top Right) -->
+        <div>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page (Middle) -->
+        <h1>Home Page</h1>
+        <!-- Add content for the home page here -->
+
+        <!-- Sections -->
+        <div class="section">
+            <!-- Register Your Data as Donor -->
+            <div class="box">
+                <h2>Register Your Data as Donor</h2>
+                <!-- Add form or link for donor registration here -->
+            </div>
+        </div>
+
+        <div class="section">
+            <!-- Available Hospitals -->
+            <div class="box">
+                <h2>Available Hospitals</h2>
+                <!-- Add list of available hospitals here -->
+            </div>
+        </div>
+
+        <div class="section">
+            <!-- Available Blood -->
+            <div class="box">
+                <h2>Available Blood</h2>
+                <!-- Add list of available blood types here -->
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <!-- Additional CSS or meta tags can be added here -->
+</head>
+<body>
+
+<style>
+    .size {
+        min-height: 0px;
+        padding: 60px 0 40px 0;
+    }
+    .form-container {
+        background-color: white;
+        border: .5px solid #eee;
+        border-radius: 5px;
+        padding: 20px 10px 20px 30px;
+        box-shadow: 0px 2px 5px -2px rgba(89, 89, 89, 0.95);
+    }
+    .form-group {
+        text-align: left;
+    }
+    h1 {
+        color: white;
+    }
+    h3 {
+        color: #e74c3c;
+        text-align: center;
+    }
+    .red-bar {
+        width: 25%;
+    }
+</style>
+
+<div class="container-fluid red-background size">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center">Donate</h1>
+            <hr class="white-bar">
+        </div>
+    </div>
+</div>
+
+<div class="container size">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 form-container">
+            <h3>SignUp</h3>
+            <hr class="red-bar">
+
+            <!-- Error Messages -->
+            <div id="error-messages"></div>
+
+            <form class="form-group" action="{% url 'signup' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" name="name" id="fullname" placeholder="Full Name" required pattern="[A-Za-z/\s]+" title="Only lower and upper case and space" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="blood_group">Blood Group</label><br>
+                    <select class="form-control demo-default" id="blood_group" name="blood_group" required>
+                        <option value="">---Select Your Blood Group---</option>
+                        <!-- Options here -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label><br>
+                    <input type="radio" name="gender" id="gender_male" value="Male" style="margin-left:10px; margin-right:10px;" checked>
+                    <label for="gender_male">Male</label>
+                    <input type="radio" name="gender" id="gender_female" value="Female" style="margin-left:10px;">
+                    <label for="gender_female">Female</label>
+                </div>
+                <div class="form-inline">
+                    <label for="dob">Date of Birth</label><br>
+                    <!-- Date inputs here -->
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact_no">Contact No</label>
+                    <input type="text" name="contact_no" value="" placeholder="03********" class="form-control" required pattern="^\d{11}$" title="11 numeric characters only" maxlength="11">
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <!-- City select here -->
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" value="" placeholder="Password" class="form-control" required pattern=".{6,}" title="Minimum 6 characters">
+                </div>
+                <div class="form-group">
+                    <label for="c_password">Confirm Password</label>
+                    <input type="password" name="c_password" value="" placeholder="Confirm Password" class="form-control" required pattern=".{6,}" title="Minimum 6 characters">
+                </div>
+                <div class="form-inline">
+                    <input type="checkbox" name="term" value="true" required style="margin-left:10px;">
+                    <span style="margin-left:10px;"><b>I agree to donate my blood and show my Name, Contact Nos. and E-Mail in Blood donors List</b></span>
+                </div>
+                <div class="form-group">
+                    <button id="submit" name="submit" type="submit" class="btn btn-lg btn-danger center-aligned" style="margin-top: 20px;">SignUp</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Include footer if needed -->
+
+</body>
+</html>

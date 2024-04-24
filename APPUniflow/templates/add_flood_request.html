@@ -1,0 +1,53 @@
+<!-- add_blood_request.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Blood Request</title>
+</head>
+<body>
+    <h1>Add Blood Request</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+
+        <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address"><br>
+
+        <label for="blood_type">Blood Type:</label><br>
+        <select id="blood_type" name="blood_type">
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+        </select><br>
+
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age"><br>
+
+        <label for="disease">Disease:</label><br>
+        <input type="text" id="disease" name="disease"><br>
+
+        <label for="need_within_date">Need Within Date:</label><br>
+        <input type="date" id="need_within_date" name="need_within_date"><br>
+
+        <label for="phone_number">Phone Number:</label><br>
+        <input type="text" id="phone_number" name="phone_number"><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+
+
+
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

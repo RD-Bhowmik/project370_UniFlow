@@ -1,0 +1,23 @@
+<!-- hospital_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital List</title>
+</head>
+<body>
+    <h1>List of Hospitals</h1>
+    <ul>
+        {% for hospital in hospitals %}
+            <li>{{ hospital.name }} - {{ hospital.location }} - {{ hospital.email }}</li>
+        {% endfor %}
+    </ul>
+    <hr>
+
+    <h1>Register Your Hospital in our site</h1>
+    <p>Help us to save lives</p>
+    <a href="{% url 'register_hospital' %}">Register Hospital</a>
+</body>
+</html>

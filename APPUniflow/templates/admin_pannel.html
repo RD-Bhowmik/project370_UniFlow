@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Admin Panel</title>
+    <!-- Include Bootstrap CSS (you might need to adjust the path based on your setup) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .admin-button {
+            width: 200px;
+            height: 100px;
+            border-radius: 5px;
+            margin: 5px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #000000;
+        }
+
+        h1.admin-heading {
+            background-color: #000000;
+            /* Set your desired background color */
+            color: #ffffff;
+            /* Set your desired text color */
+            padding: 10px;
+            border: 2px solid #000000;
+            /* Set your desired border color */
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="admin-heading">UNIflow</h1>
+
+
+    <div class="row">
+        <div class="col-md-2">
+            <a href="{% url 'donor_list' %}" class="btn btn-dark admin-button">Available Bloods</a>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'hospital_list' %}" class="btn btn-dark admin-button">Hospital list</a>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'add_donor' %}" class="btn btn-dark admin-button">Add Doner</a>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'blood_request_list' %}" class="btn btn-dark admin-button">Blood request list</a>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'event_list' %}" class="btn btn-dark admin-button">Events</a>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'add_event' %}" class="btn btn-dark admin-button">Add NEW Event</a>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

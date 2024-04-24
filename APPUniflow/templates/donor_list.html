@@ -1,0 +1,116 @@
+<!-- templates/blood_donors/donor_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor List</title>
+    <style>
+        /* Define CSS for table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Define CSS for odd and even rows */
+        .odd {
+            background-color: #f9f9f9;
+        }
+
+        .even {
+            background-color: #e6e6e6;
+        }
+
+        /* Define CSS for search bar */
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+        .search-container input[type=text] {
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>List of Donors</h1>
+    <!-- Search Bar -->
+    <div class="search-container">
+        <form action="{% url 'donor_list' %}" method="GET">
+            <!-- Blood Group Search -->
+            <label for="blood_group">Blood Group:</label>
+            <select name="blood_group" id="blood_group">
+                <option value="">All</option>
+                <option value="A+">A+</option>
+                <option value="B+">B+</option>
+                <option value="AB+">AB+</option>
+                <option value="O+">O+</option>
+                <option value="A-">A-</option>
+                <option value="B-">B-</option>
+                <option value="AB-">AB-</option>
+                <option value="O-">O-</option>
+                <!-- Add other blood group options here -->
+            </select>
+            
+            <!-- Location Search -->
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" placeholder="Enter location">
+    
+            <button type="submit">Search</button>
+        </form>
+
+    </div>
+    <h2>Donor Counter</h2>
+    <p class="counter">Number of donors: {{ donor_count }}</p>
+
+    <h2>Blood Type Counts</h2>
+    <ul>
+        {% for blood_type_count in blood_type_counts %}
+            <li>{{ blood_type_count.blood_type }}: {{ blood_type_count.count }}</li>
+        {% endfor %}
+    </ul>
+    <!-- Donor List Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Blood Type</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for donor in donors %}
+            <tr class="{% cycle 'odd' 'even' %}">
+                <td>{{ forloop.counter }}</td>
+                <td>{{ donor.name }}</td>
+                <td>{{ donor.email }}</td>
+                <td>{{ donor.blood_type }}</td>
+                <td>{{ donor.phone_number }}</td>
+                <td>{{ donor.address }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
