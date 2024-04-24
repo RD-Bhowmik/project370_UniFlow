@@ -1,18 +1,23 @@
 <!-- update_blood_request.html -->
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Blood Request</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/update_blood_request.css">
 </head>
 <body>
     <h1>Update Blood Request</h1>
-    <form method="post">
+    <form  method="post">
         {% csrf_token %}
         {{ form.as_p }}
+        
         <button type="submit">Update</button>
     </form>
+
+    <script src="/static/js/"></script>
 </body>
 </html>

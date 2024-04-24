@@ -2,17 +2,27 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Event</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/update_event.css">
 </head>
+
 <body>
-    <h1>Update Event</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Update Event</button>
-    </form>
+    <div class="container">
+        <h1>Update Event</h1>
+        <form id="eventForm" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            
+            <button type="submit">Update Event</button>
+        </form>
+    </div>
+
+    <script src="/static/js/update_event.js"></script>
 </body>
+
 </html>

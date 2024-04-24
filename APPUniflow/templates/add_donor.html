@@ -14,20 +14,6 @@
         <button type="submit">Submit</button>
     </form>
 
-    <script>
-        // JavaScript animations
-        const form = document.querySelector('form');
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const inputs = this.querySelectorAll('input');
-            inputs.forEach(input => {
-                input.style.border = '2px solid #007bff';
-                input.style.transition = 'border-color 0.3s ease';
-                setTimeout(() => {
-                    input.style.border = 'none';
-                }, 1000);
-            });
-        });
-    </script>
+   
 </body>
 </html>
