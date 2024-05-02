@@ -19,7 +19,7 @@ class Donor(models.Model):
         ('O-', 'O-'),
     )
 
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)   
     email = models.EmailField(unique=True)
     blood_type = models.CharField(max_length=3, choices=blood_types)
     phone_number = models.CharField(max_length=15, unique=True)
